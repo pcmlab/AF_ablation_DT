@@ -1,0 +1,26 @@
+data:
+  data: '/media/alex/Seagate Des/1000SSM_datasets/features_SSM_1000_128bins_smoothed.h5'  #  !!!
+  threshold_number: 250 
+                    
+hardware:
+  num_workers: 16 
+  gpus: [0]     
+  ddp: True        
+
+
+training:
+  max_epochs: 300 
+  check_val: 10 #
+  model: 'DenseNet121' #, 'DenseNet121', 'EfficientNetBN'
+  out_channels: 32 # 32 if moab, 3 if concat
+  fc_channels: 512 #
+  activation: 'sigmoid'
+  loss: 'BCELogits'  #'BCE', 'BCELogits'
+  merging: 'MOAB' # 'concat', 'MOAB'
+  batch: 80 
+  optimizer:
+    name: 'adam'  #  adam, sgd
+    params:
+      lr: 0.0000004 
+      weight_decay: 0.000001 
+
