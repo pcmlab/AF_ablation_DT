@@ -1,5 +1,5 @@
 data:
-  data: '/media/alex/Seagate Des/1000SSM_datasets/features_SSM_1000_128bins_smoothed.h5'  #  !!!
+  data: 'dataset.h5'  #  !!!
   threshold_number: 250 
                     
 hardware:
