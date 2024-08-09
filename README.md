@@ -1,6 +1,6 @@
 ### Predicting Atrial Fibrillation Treatment Outcome with Siamese Multi-modal Fusion and Digital Twins
 
-The paper has been submitted at Medical Imaging with Deep Learning conference (MIDL 2024).
+The paper was presented at Medical Imaging with Deep Learning conference (MIDL 2024).
 
   ### Abstract
   
