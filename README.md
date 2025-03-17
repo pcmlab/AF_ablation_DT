@@ -1,5 +1,7 @@
 ### Synthetic Fibrosis Distributions for Data Augmentation in Predicting Atrial Fibrillation Ablation Outcomes: an In-silico Study
 
+> Alexander Zolotarev, Kiane Johnson, Yusuf Mohammad, Omnia Alwazzan, Gregory Slabaugh and Caroline Roney<br />
+
 The paper is under consideration in Frontiers in Cardiovascular Medicine.
 
   ### Abstract
