@@ -17,13 +17,13 @@ AF biophysical simulations can be effectively conducted on bi-atrial meshes inco
 Training the deep learning pipeline on these simulations produces performance metrics comparable to those achieved with real LGE-MRI distributions (ROC-AUC = 0.952 vs. 0.943).
 We have shown the ability of synthetic fibrosis distributions to be a data augmentation tool for deep learning classification of outcomes of various ablation strategies, which may enable rapid and precise assessment of Atrial Fibrillation treatment strategies.
 
-![image](fr_pipeline.png)
+![image](fr_pipeline.jpg)
 
 ### Proposed architecture
 
 To address the problem of fast and correct prediction of AF ablation, we propose a DL pipeline based on Siamese architecture.
-Each head consists of DenseNet121 network and utilises 4 channel-wisely concatenated feature maps (all of the size 128 by 128 pixels) from left and right atrium separately.
-The outputs of both heads (n = 32 each) were fed into a Multi-modal Outer Arithmetic Block (MOAB) or Flatten for the fusion of latent representations of features.
+Each head consists of a DenseNet121 network and utilises 4 channel-wisely concatenated feature maps (all of the size 128 by 128 pixels) from the left and right atrium separately.
+The outputs of both heads (n = 32 each) were fed into a Multi-modal Outer Arithmetic Block (MOAB) or Flattened Outer Arithmetic Attention (FOAA) blocks for the fusion of latent representations of features.
 It allows us to capture and combine the relevant features from different anatomical structures by applying four arithmetic operations. 
 The resulting arrays were concatenated into multi-modal tensor which passed through the 2D convolution layer.
 The final prediction of AF ablation outcome as the probability of AF termination was achieved through two successive fully-connected layers (n = 1089 and 512 respectively) and one dropout layer.
@@ -39,11 +39,11 @@ python3 ablation_pred.py config_FOAA.yaml name_of_experiment
 ```
 ## Improvements over previous works
 
-We utilised a previously proposed generation architecture \citep{Zolotarev_CinC} which was the first to our knowledge implementation of the diffusion model for fibrosis generation.
+We utilised a previously proposed [generation architecture](https://github.com/pcmlab/cinc23_qmul) which was the first to our knowledge implementation of the diffusion model for fibrosis generation.
 However, the number of cases there was limited to 100, we did not perform Shannon entropy analysis and we aimed to predict only PVI ablation outcomes by calculating only the dominant frequency feature maps.
-More recently we have developed a deep learning pipeline with a multi-modal fusion of feature maps from AF simulation before any ablation to predict the outcomes of various types of ablation strategies \citep{zolotarev2024predicting}.
+More recently we have developed a deep learning pipeline with a multi-modal fusion of feature maps from AF simulation before any ablation to predict the outcomes of various types of ablation strategies [MIDL pipeline](https://github.com/pcmlab/AF_ablation_DT/tree/midl).
 Our current work combines the best approaches of these two works with key improvements as follows:
 
-    * We have changed the deep learning pipeline to predict ablation outcomes for all ablation strategies at once (binary classification for four ablation strategies together rather than for each one separately).
-    * We have tested a new convolutional neural network (ConvNeXt) and a new multi-modal fusion (FOAA) block.
-    * We have separated 1000 bi-atrial meshes and fibrosis distributions into training, validation and testing sets to avoid data leakage.
+* We have changed the deep learning pipeline to predict ablation outcomes for all ablation strategies at once (binary classification for four ablation strategies together rather than for each one separately).
+* We have tested a new convolutional neural network (ConvNeXt) and a new multi-modal fusion (FOAA) block.
+* We have separated 1000 bi-atrial meshes and fibrosis distributions into training, validation and testing sets to avoid data leakage.
