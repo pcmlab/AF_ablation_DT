@@ -1,4 +1,4 @@
-**There is a new version of pthe ipeline with some updates: [New version]([https://github.com/MIC-DKFZ/nnUNet](https://github.com/pcmlab/AF_ablation_DT)).**
+**There is a new version of pthe ipeline with some updates: [New version]((https://github.com/pcmlab/AF_ablation_DT)).**
 
 ### Predicting Atrial Fibrillation Treatment Outcome with Siamese Multi-modal Fusion and Digital Twins
 
