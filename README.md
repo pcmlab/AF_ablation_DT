@@ -25,7 +25,7 @@ We have shown the ability of synthetic fibrosis distributions to be a data augme
 
 To address the problem of fast and correct prediction of AF ablation, we propose a DL pipeline based on Siamese architecture.
 Each head consists of a DenseNet121 network and utilises 4 channel-wisely concatenated feature maps (all of the size 128 by 128 pixels) from the left and right atrium separately.
-The outputs of both heads (n = 32 each) were fed into a Multi-modal Outer Arithmetic Block (MOAB) or Flattened Outer Arithmetic Attention (FOAA) blocks for the fusion of latent representations of features.
+The outputs of both heads (n = 32 each) were fed into a Multi-modal Outer Arithmetic Block (MOAB) or Flattened Outer Arithmetic Attention ([FOAA](https://github.com/omniaalwazzan/foaa)) blocks for the fusion of latent representations of features.
 It allows us to capture and combine the relevant features from different anatomical structures by applying four arithmetic operations. 
 The resulting arrays were concatenated into multi-modal tensor which passed through the 2D convolution layer.
 The final prediction of AF ablation outcome as the probability of AF termination was achieved through two successive fully-connected layers (n = 1089 and 512 respectively) and one dropout layer.
