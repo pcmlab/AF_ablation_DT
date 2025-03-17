@@ -2,12 +2,12 @@
 import fire
 import os
 import pytorch_lightning as pl
-# from clearml import Task
+from clearml import Task
 from pytorch_lightning import loggers
 from pytorch_lightning.callbacks.model_checkpoint import ModelCheckpoint
 from utils import get_config, get_logger, make_result_dir
 import shutil
-from pipeline import Net # !!!!
+from pipeline_oneloop import Net # !!!!
 
 def main(config_file: str, name: str) -> None:
     """Run training script
@@ -18,8 +18,8 @@ def main(config_file: str, name: str) -> None:
         Path to config file.
     """
 
-    # task = Task.init(project_name="ablation_prediction", task_name=name)
-    # task.set_resource_monitor_iteration_timeout(180)
+    task = Task.init(project_name="Frontiers2024", task_name=name)
+    task.set_resource_monitor_iteration_timeout(180)
     #  set random seed
     # np.random.seed(42)
 
@@ -29,8 +29,8 @@ def main(config_file: str, name: str) -> None:
     #  read config file
     config = get_config(config_file)
 
-    #  tracl config with ClearML
-    # _ = task.connect_configuration(config)
+    #track config with ClearML
+    _ = task.connect_configuration(config)
 
     #  print config info into log
     log_message =\

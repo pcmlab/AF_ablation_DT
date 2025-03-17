@@ -13,6 +13,17 @@ class conv_(nn.Module):
     def forward(self, x):
         return self.Conv_(x)
 
+class conv_new(nn.Module):
+    def __init__(self, in_channels, out_channels):
+        super().__init__()
+        self.Conv_ = nn.Sequential(
+            nn.Conv1d(in_channels, out_channels, kernel_size=1, padding=0),   ### fix it by tunning [1,3,7]
+            nn.Dropout(p=0.02)
+            )
+
+    def forward(self, x):
+        return self.Conv_(x)
+
 def append_0_s(x1,x3,config): 
     b = torch.tensor([[0]]).to(device="cuda:"+str(config['hardware']['gpus'][0]),dtype=torch.float32)
     x1 = torch.cat((b.expand((x1.shape[0],1)),x1),dim=1)

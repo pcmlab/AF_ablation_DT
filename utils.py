@@ -2,16 +2,7 @@ import yaml
 import logging
 import os
 from typing import Generator, Any
-
-# import timm
-# import segmentation_models_pytorch as smp
 import torch
-# from monai.losses import TverskyLoss
-# from pytorch_toolbelt.losses import (DiceLoss, SoftBCEWithLogitsLoss,
-#                                      BinaryFocalLoss)
-# from sklearn.metrics import roc_auc_score
-
-# from src.utils.losses import BCEDiceLoss, FocalDiceLoss
 
 
 def get_config(config_path: str) -> dict:
@@ -74,15 +65,6 @@ def make_result_dir(prefix: str = '') -> str:
 
     res_dir_root = os.path.join('./results', prefix)
     os.makedirs(res_dir_root, exist_ok=True)
-
-#     res_dirs = os.listdir(res_dir_root)
-#     res_dirs = list(filter(lambda x: x.isdigit(), res_dirs))
-#     if res_dirs:
-#         res_dir = max(map(int, res_dirs)) + 1
-#     else:
-#         res_dir = 1
-#     res_dir = '{:0>4}'.format(res_dir)
-#     res_dir = os.path.join(res_dir_root, res_dir)
     return res_dir_root
 
 
