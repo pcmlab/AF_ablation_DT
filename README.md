@@ -2,7 +2,7 @@
 
 > Alexander Zolotarev, Kiane Johnson, Yusuf Mohammad, Omnia Alwazzan, Gregory Slabaugh and Caroline Roney<br />
 
-The paper is under consideration in Frontiers in Cardiovascular Medicine.
+The paper was accepted in [Frontiers in Cardiovascular Medicine](https://www.frontiersin.org/journals/cardiovascular-medicine/articles/10.3389/fcvm.2025.1512356/abstract).
 
   ### Abstract
 
